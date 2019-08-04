@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>jQuery opdracht7</title>
+</head>
+<body>
+<div id="book">
+	<p id="clickme">Klik op mij, klik op mij!!!</p>
+</div>
+<script>
+	$("#clickme").click(function () {
+		$("#book").animate({
+			marginLeft: "200",
+			height: "toggle"
+		}, 2000, function () {
+			// Animation complete.
+		});
+	});
+</script>
+</body>
+</html>
