@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <title>jQuery opdracht8</title>
@@ -11,7 +11,7 @@
         var x;
         var text = "";
         $("button").click(function () {
-			//Controleer of x een getal tussen 0 en 10 is.
+            //Controleer of x een getal tussen 0 en 10 is.
             x = $("#TekstVakje").val();
 
             if (x >= 1 && x <= 10) {
@@ -24,7 +24,9 @@
         });
     });
 </script>
-<input type="text" id="TekstVakje"/>
+<label>
+    <input type="text" id="TekstVakje">
+</label>
 <button>klik mij</button>
 <p></p>
 </body>
