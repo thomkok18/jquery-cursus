@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>jQuery opdracht9</title>
+</head>
+<body>
+<script>
+    $(document).ready(function () {
+        var decimalNumber = 16.4;               // Number
+        var number = 15;                        // Number
+        var car = "Volvo";                      // String
+        var date = "12-12-2015";                // String
+        var object = {a:1, b:2};                // Object
+        var names = ["Piet", "Jan", "Klaas"];   // Object
+
+        $("p").html(
+            typeof decimalNumber + '<br>' +
+            typeof number + '<br>' +
+            typeof car + '<br>' +
+            typeof date + '<br>' +
+            typeof object + '<br>' +
+            typeof names
+        );
+    });
+</script>
+<p></p>
+</body>
+</html>
