@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>jQuery opdracht12</title>
+</head>
+<body>
+<script type="text/javascript">
+    // Maak een nieuwe array, de lengte van deze array is dus 0
+    var mijnArray = new Array();
+
+    // Kopieert de verwijzing naar de array, niet de array zelf!
+    var tweedeVariabele = mijnArray;
+
+    // Voeg een element toe aan de array
+    tweedeVariabele.push(42);
+
+    // Zonder iets met mijnArray zelf gedaan te hebben is toch de lengte naar 1 veranderd!
+    alert(mijnArray.length);
+
+    // Array gemaakt met namen
+    var ministers = Array(
+        "Rutten",
+        "Samson",
+        "Bussemaker"
+    );
+
+    // Kopieert de array naar een nieuwe array
+    var gekozenMinisters = ministers.slice();
+
+    // Voeg nieuwe naam toe aan de nieuwe array
+    gekozenMinisters.push('Thom');
+
+    // ministers array blijft hetzelfde!
+    alert(ministers.length);
+</script>
+</body>
+</html>
