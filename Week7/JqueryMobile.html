@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="ui-mobile" lang="en">
+<head>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text-javascript"></script>
+    <script src="https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js" type="text-javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery opdracht14</title>
+</head>
+<style>
+    .ui-mobile, .ui-mobile body {
+        height: inherit;
+    }
+
+    #firstpage.ui-page-active, #secondpage.ui-page-active, #thirdpage.ui-page-active {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .ui-page-inactive {
+        display: none;
+    }
+
+    .ui-content {
+        flex-grow: 1;
+    }
+
+    h1, h2 {
+        margin: 0;
+        padding: 10px 0;
+        text-align: center;
+        background-color: #F2F2F2;
+    }
+
+    form {
+        max-width: 500px;
+    }
+
+    #basicfield {
+        box-sizing: border-box;
+        width: 100%;
+    }
+</style>
+<body>
+    <script>
+        $(document).ready(function () {
+            window.location = 'JqueryMobile.html#firstpage';
+
+            // Navigate to different page.
+            $(window).on('hashchange', function(e){
+                var oldHash = e.originalEvent.oldURL.split("#")[1];
+                var newHash = e.originalEvent.newURL.split("#")[1];
+
+                $("#" + oldHash).attr("class", "ui-page-inactive");
+                $("#" + newHash).attr("class", "ui-page-active");
+            });
+        });
+    </script>
+
+    <!-- This is the first page -->
+    <section id="firstpage" class="ui-page-active" data-url="firstpage" data-role="page">
+        <div data-role="header">
+            <h1>Page Content Header</h1>
+        </div>
+        <div class="ui-content">
+            <p>This is the content on page 1</p>
+            <p><a href="#secondpage">Go to second page</a></p>
+            <p><a href="#thirdpage">Go to third page</a></p>
+        </div>
+        <div data-role="footer">
+            <h2>Page Content Footer</h2>
+        </div>
+    </section>
+
+    <!-- This is the second page -->
+    <section id="secondpage" class="ui-page-inactive" data-url="secondpage" data-role="page">
+        <div data-role="header">
+            <h1>Page Content Header</h1>
+        </div>
+        <div class="ui-content">
+            <p>Page 2 has different content on it</p>
+            <p><a href="#firstpage">Go to first page</a></p>
+            <p><a href="#thirdpage">Go to third page</a></p>
+        </div>
+        <div data-role="footer">
+            <h2>Page Content Footer</h2>
+        </div>
+    </section>
+
+    <!-- This is the third page -->
+    <section id="thirdpage" class="ui-page-inactive" data-role="page">
+        <div data-role="header">
+            <h1>Form Basics Example</h1>
+        </div>
+        <div class="ui-content">
+            <form method="get" action="">
+                <label for="basicfield">Basic Text Field:</label>
+                <input id="basicfield" class="ui-input-text" type="text" name="basicfield" value="">
+                <button class="ui-btn" type="submit">Submit</button>
+            </form>
+            <a class="ui-btn" href="https://demos.jquerymobile.com/1.2.0/docs/forms/" target="_blank">Form elements</a>
+            <div>
+                <p><a href="#firstpage">Go to first page</a></p>
+                <p><a href="#secondpage">Go to second page</a></p>
+            </div>
+        </div>
+        <div data-role="footer">
+            <h2>Page Content Footer</h2>
+        </div>
+    </section>
+</body>
+</html>
