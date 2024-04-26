@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <title>jQuery opdracht13</title>
+</head>
+<body>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var car = {
+            merk: 'audi',
+            type: 'quattro',
+            toeter: 'honkhonk',
+            toeteren: function () {
+                return 'de toeter van de ' + this.merk + ' '
+                    + this.type + ' klinkt als: '
+                    + this.toeter;
+            }
+        }
+
+        var garage = {
+            open: false,
+            auto: car,
+        }
+
+        $("#honk-car").on("click", function honk() {
+            $("#demo").html(car.toeteren());
+        });
+
+        $("#car").html(
+            'De auto in de garage: ' + '<br>' +
+            'Merk: ' + garage.auto.merk + '<br>' +
+            'Type: ' + garage.auto.type + '<br>' +
+            'Toeter: ' + garage.auto.toeter + '<br>'
+        );
+
+        $("#carGarage").on("click", function carGarage() {
+            garage.open = !garage.open;
+
+            if (garage.open) {
+                $("#car").show();
+                $("#carGarage").html('Close garage');
+                $("#honk-car").show();
+                $("#demo").show();
+            } else {
+                $("#car").hide();
+                $("#carGarage").html('Open garage');
+                $("#honk-car").hide();
+                $("#demo").hide();
+            }
+        });
+
+        $( "#change-car" ).on( "submit", function(event) {
+            event.preventDefault();
+
+            $('#change-car :input').each(function() {
+                car[this.name] = $(this).val();
+            });
+
+            $("#car").html(
+                'De auto in de garage: ' + '<br>' +
+                'Merk: ' + garage.auto.merk + '<br>' +
+                'Type: ' + garage.auto.type + '<br>' +
+                'Toeter: ' + garage.auto.toeter + '<br>'
+            );
+        });
+    });
+</script>
+<form id="change-car">
+    <label>
+        <input id="merk" type="text" name="merk" placeholder="merk">
+    </label>
+    <label>
+        <input id="type" type="text" name="type" placeholder="type">
+    </label>
+    <label>
+        <input id="toeter" type="text" name="toeter" placeholder="toeter">
+    </label>
+    <button type="submit">Pas auto aan</button>
+</form>
+<button id="carGarage">Open garage</button>
+<p id="car" style="display: none;"></p>
+<button id="honk-car" style="display: none;">Toeteren</button>
+<p id="demo" style="display: none;"></p>
+</body>
+</html>
